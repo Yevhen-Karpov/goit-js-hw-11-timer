@@ -4,8 +4,15 @@ const refs = {
   mins: document.querySelector('.value[data-value="mins"]'),
   secs: document.querySelector('.value[data-value="secs"]'),
   timerSelect: document.getElementById("timer-1"),
+  bodyColor: document.body.style,
 };
 
+// function getRGB() {
+//   const r = Math.floor(Math.random() * 256);
+//   const b = Math.floor(Math.random() * 256);
+//   const g = Math.floor(Math.random() * 256);
+//   return [r, g, b];
+// }
 class CountdownTimer {
   constructor({ selector, targetDate }) {
     this.selector = selector;
@@ -31,6 +38,8 @@ class CountdownTimer {
       Math.floor((deltaTime % (1000 * 60 * 60)) / (1000 * 60))
     );
     const seconds = this.pad(Math.floor((deltaTime % (1000 * 60)) / 1000));
+    // const [red, green, blue] = getRGB();
+    // refs.bodyColor.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
     refs.days.textContent = `${days}`;
     refs.hours.textContent = `${hours}`;
     refs.mins.textContent = `${mins}`;
@@ -51,5 +60,5 @@ class CountdownTimer {
 
 new CountdownTimer({
   selector: "#timer-1",
-  targetDate: new Date(`oct 14, 2021,`),
+  targetDate: new Date(`oct 16, 2021,`),
 });
